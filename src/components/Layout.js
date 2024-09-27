@@ -3,16 +3,21 @@ import styled from 'styled-components'
 import Footer from './Footer'
 import Header from './Header'
 
-// style
 const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+  }
 `
 
 const Main = styled.main`
   flex: 1;
   padding: 20px;
+
+  @media (max-width: 768px) {
+  }
 `
 
 export default function Layout({
@@ -22,7 +27,7 @@ export default function Layout({
 }) {
   return (
     <LayoutWrapper>
-      {showHeader && <Header />}
+      {showHeader && <Header cartCount={5} />}
       <Main>{children}</Main>
       {showFooter && <Footer />}
     </LayoutWrapper>
