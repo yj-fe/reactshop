@@ -125,7 +125,9 @@ export default function Header({ isLoggedIn = false, cartCount = 0 }) {
             <ProfileIcon />
           </>
         ) : (
-          <LoginButton>Login</LoginButton>
+          <Link to="/login">
+            <LoginButton>Login</LoginButton>
+          </Link>
         )}
       </Menu>
     </HeaderWrapper>

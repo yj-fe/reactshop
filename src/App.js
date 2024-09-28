@@ -4,6 +4,10 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { theme } from './styles/Theme'
 import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import GoogleLoginPage from './pages/GoogleLoginPage'
+import AdminLoginPage from './pages/AdminLoginPage'
 import ProductPage from './pages/ProductPage'
 
 export default function App() {
@@ -16,6 +20,11 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         {/* /products 경로 */}
         <Route path="/products" element={<ProductPage />} />
+        {/* /login 경로 */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login/google" element={<GoogleLoginPage />} />
+        <Route path="/admin-login" element={<AdminLoginPage />} />
       </Routes>
     </ThemeProvider>
   )
