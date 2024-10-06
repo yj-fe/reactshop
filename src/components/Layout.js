@@ -24,11 +24,12 @@ export default function Layout({
   children,
   showHeader = true,
   showFooter = true,
+  centered = true,
 }) {
   return (
     <LayoutWrapper>
       {showHeader && <Header cartCount={5} />}
-      <Main>{children}</Main>
+      <Main centered={centered}>{children}</Main>
       {showFooter && <Footer />}
     </LayoutWrapper>
   )

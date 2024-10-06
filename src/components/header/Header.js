@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaShoppingCart } from 'react-icons/fa'
@@ -118,11 +118,16 @@ export default function Header({ isLoggedIn = false, cartCount = 0 }) {
       <Menu>
         {isLoggedIn ? (
           <>
-            <CartIconWrapper>
-              <CartIcon />
-              {cartCount > 0 && <CartCount>{cartCount}</CartCount>}
-            </CartIconWrapper>
-            <ProfileIcon />
+            <Link to="/carts">
+              <CartIconWrapper>
+                <CartIcon />
+                {cartCount > 0 && <CartCount>{cartCount}</CartCount>}
+              </CartIconWrapper>
+            </Link>
+            <Link to="/mypage">
+              <ProfileIcon />
+            </Link>
+            <LoginButton>LogOut</LoginButton>
           </>
         ) : (
           <Link to="/login">

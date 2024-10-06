@@ -1,10 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
 
-export default function ProductPage() {
+export default function MyPage() {
   return (
     <Layout>
-      <h2>Product Details</h2>
+      <h1>MyPage</h1>
     </Layout>
   )
 }
