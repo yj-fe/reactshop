@@ -6,7 +6,6 @@ import { theme } from './styles/Theme'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
-import GoogleLoginPage from './pages/GoogleLoginPage'
 import AdminLoginPage from './pages/AdminLoginPage'
 import ProductPage from './pages/ProductPage'
 import MyPage from './pages/MyPage'
@@ -26,7 +25,6 @@ export default function App() {
         {/* 로그인 */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login/google" element={<GoogleLoginPage />} />
         <Route path="/admin-login" element={<AdminLoginPage />} />
         {/* 마이페이지 */}
         <Route path="/mypage" element={<MyPage />} />

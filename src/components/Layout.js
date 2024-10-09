@@ -15,8 +15,17 @@ const LayoutWrapper = styled.div`
 const Main = styled.main`
   flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: ${({ centered }) => (centered ? 'center' : 'flex-start')};
 
   @media (max-width: 768px) {
+    align-items: center;
+  }
+
+  > * {
+    max-width: 600px;
+    width: 100%;
   }
 `
 

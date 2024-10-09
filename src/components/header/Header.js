@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../../store/authSlice'
 import styled from 'styled-components'
 import { FaShoppingCart } from 'react-icons/fa'
 import { FiLogIn, FiUser } from 'react-icons/fi' // 로그인 아이콘
@@ -101,7 +103,19 @@ const LoginButton = styled.button`
   }
 `
 
-export default function Header({ isLoggedIn = false, cartCount = 0 }) {
+export default function Header({ cartCount = 0 }) {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogin = () => {
+    navigate('/login')
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
+
   return (
     <HeaderWrapper>
       {/* 로고 */}
@@ -127,12 +141,10 @@ export default function Header({ isLoggedIn = false, cartCount = 0 }) {
             <Link to="/mypage">
               <ProfileIcon />
             </Link>
-            <LoginButton>LogOut</LoginButton>
+            <LoginButton onClick={handleLogout}>LogOut</LoginButton>
           </>
         ) : (
-          <Link to="/login">
-            <LoginButton>Login</LoginButton>
-          </Link>
+          <LoginButton onClick={handleLogin}>Login</LoginButton>
         )}
       </Menu>
     </HeaderWrapper>

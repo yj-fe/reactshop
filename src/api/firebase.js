@@ -12,11 +12,14 @@ const app = initializeApp(firebaseConfig)
 const auth = getAuth()
 const provider = new GoogleAuthProvider()
 
-export function login() {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(console.error)
+export async function login() {
+  try {
+    const result = await signInWithPopup(auth, provider)
+    const user = result.user
+    console.log('user', user)
+    return user
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
 }
