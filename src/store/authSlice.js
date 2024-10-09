@@ -13,12 +13,13 @@ const authSlice = createSlice({
       state.isLoggedIn = true
       state.user = action.payload // 사용자 정보 저장
     },
-    logout: (state) => {
+    // 로그아웃 사용자 초기화
+    resetUser: (state) => {
       state.isLoggedIn = false
-      state.user = null // 사용자 초기화
+      state.user = null
     },
   },
 })
 
-export const { setUser, logout } = authSlice.actions
+export const { setUser, resetUser } = authSlice.actions
 export default authSlice.reducer

@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,6 +23,16 @@ export async function login() {
     const user = result.user
     console.log('user', user)
     return user
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+export async function logout() {
+  try {
+    await signOut(auth)
+    return null
   } catch (error) {
     console.error(error)
     throw error

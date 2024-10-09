@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout } from '../../store/authSlice'
 import styled from 'styled-components'
 import { FaShoppingCart } from 'react-icons/fa'
 import { FiLogIn, FiUser } from 'react-icons/fi' // 로그인 아이콘
 import { MdOutlineInventory2 } from 'react-icons/md' // 상품 아이콘
+import { logout } from '../../api/firebase'
+import { resetUser } from '../../store/authSlice'
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -112,10 +113,14 @@ export default function Header({ cartCount = 0 }) {
     navigate('/login')
   }
 
-  const handleLogout = () => {
-    dispatch(logout())
+  const handleLogout = async () => {
+    try {
+      await logout()
+      dispatch(resetUser())
+    } catch (error) {
+      console.error('Logout error:', error)
+    }
   }
-
   return (
     <HeaderWrapper>
       {/* 로고 */}
