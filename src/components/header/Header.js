@@ -53,6 +53,11 @@ const Menu = styled.div`
       margin-right: 10px;
     }
   }
+  @media (max-width: 480px) {
+    a {
+      margin-right: 5px;
+    }
+  }
 `
 
 const CartIconWrapper = styled.div`
@@ -88,6 +93,10 @@ const ProfileIcon = styled(FiUser)`
   &:hover {
     color: ${({ theme }) => theme.background};
   }
+  @media (max-width: 480px) {
+    font-size: 20px;
+    margin: 0 5px;
+  }
 `
 
 const LoginButton = styled.button`
@@ -101,6 +110,10 @@ const LoginButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.accent};
+  }
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 `
 

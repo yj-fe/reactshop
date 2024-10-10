@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom' // Routes와 Route 추가
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/GlobalStyles'
@@ -11,8 +11,12 @@ import ProductPage from './pages/ProductPage'
 import MyPage from './pages/MyPage'
 import CartPage from './pages/CartPage'
 import OrderPage from './pages/OrderPage'
+import { monitorAuthState } from './api/firebase'
 
 export default function App() {
+  useEffect(() => {
+    monitorAuthState()
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

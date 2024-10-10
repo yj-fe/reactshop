@@ -4,7 +4,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth'
+import { resetUser, setUser } from '../store/authSlice'
+import store from '../store/store'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -32,9 +35,21 @@ export async function login() {
 export async function logout() {
   try {
     await signOut(auth)
-    return null
+    // return null
   } catch (error) {
     console.error(error)
     throw error
   }
+}
+
+export function monitorAuthState() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      store.dispatch(
+        setUser({ displayName: user.displayName, email: user.email })
+      )
+    } else {
+      store.dispatch(resetUser())
+    }
+  })
 }
