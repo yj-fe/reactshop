@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth'
+import { getDatabase, ref, child, get } from 'firebase/database'
 import { resetUser, setUser } from '../store/authSlice'
 import store from '../store/store'
 
@@ -53,3 +54,12 @@ export function monitorAuthState() {
     }
   })
 }
+
+// async function adminUser(user) {
+//   return get(ref(database, 'admins')).then((snapshot) => {
+//     if (snapshot.exists()) {
+//       const admins = snapshot.val()
+//       console.log(admins)
+//     }
+//   })
+// }

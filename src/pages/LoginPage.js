@@ -15,7 +15,7 @@ const LoginPageWrapper = styled.div`
   justify-content: center;
   padding: 20px;
   height: 100vh;
-  background-color: ${({ theme }) => theme.secondary}; /* 서브 컬러 배경 */
+  background-color: ${({ theme }) => theme.secondary};
   gap: 30px;
 `
 
@@ -27,7 +27,7 @@ const LogoWrapper = styled.div`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.primary}; /* 메인 컬러 */
+    color: ${({ theme }) => theme.primary};
     font-size: 2.5rem;
     font-weight: bold;
   }

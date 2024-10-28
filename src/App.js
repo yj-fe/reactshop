@@ -8,10 +8,12 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import AdminLoginPage from './pages/AdminLoginPage'
 import ProductPage from './pages/ProductPage'
+import ProductDetailPage from './pages/ProductDetailPage'
 import MyPage from './pages/MyPage'
 import CartPage from './pages/CartPage'
 import OrderPage from './pages/OrderPage'
 import { monitorAuthState } from './api/firebase'
+import AdminPage from './pages/AdminLoginPage'
 
 export default function App() {
   useEffect(() => {
@@ -26,6 +28,10 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         {/* 상품 */}
         <Route path="/products" element={<ProductPage />} />
+        <Route
+          path="/products/:productId"
+          element={<ProductDetailPage />}
+        />{' '}
         {/* 로그인 */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -36,6 +42,8 @@ export default function App() {
         <Route path="/carts" element={<CartPage />} />
         {/* 주문 */}
         <Route path="/order" element={<OrderPage />} />
+        {/* 어드민 */}
+        <Route path="/adminpage" element={<AdminPage />} />
       </Routes>
     </ThemeProvider>
   )
